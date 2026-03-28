@@ -41,6 +41,15 @@
     .page-enter { animation: pageEnter 260ms ease forwards; }
     .page-exit { animation: pageExit 220ms ease forwards; pointer-events: none; }
 
+    .fade-rise {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeRise 420ms ease forwards;
+    }
+
+    .fade-rise.delay-1 { animation-delay: 90ms; }
+    .fade-rise.delay-2 { animation-delay: 180ms; }
+
     @keyframes pageEnter {
       from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
@@ -51,12 +60,16 @@
       to { opacity: 0; transform: translateY(-6px); }
     }
 
+    @keyframes fadeRise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* HOME */
     .home-shell {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      background: linear-gradient(to bottom, #e6ece9 0 53%, #d8dcdb 53% 100%);
+      background: #e6ece9;
     }
 
     .container {
@@ -225,6 +238,7 @@
       background: #08a781;
       box-shadow: 0 4px 10px rgba(8, 120, 99, 0.28);
       transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+      margin-top: 22px;
     }
 
     .action-btn:hover,
@@ -235,10 +249,6 @@
       box-shadow: 0 10px 18px rgba(20, 78, 64, 0.24);
     }
 
-    .action-btn.panel-access {
-      margin-top: 10px;
-      background: #0a8d71;
-    }
 
     .portal-footer {
       position: relative;
@@ -929,104 +939,65 @@
       padding: 18px 18px 20px;
     }
 
-    .pay-kpis {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(140px, 1fr));
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .pay-kpi {
-      border: 1px solid #d7dde2;
-      border-radius: 9px;
-      background: #f9fafb;
+    .pay-alert-note {
+      margin: 12px 0 0;
+      border: 1px solid #f0ddb0;
+      border-radius: 8px;
+      background: #fff7df;
       padding: 10px 12px;
+      color: #5a4a1a;
+      line-height: 1.4;
     }
 
-    .pay-kpi-title {
-      margin: 0;
-      font-size: .74rem;
+    .pay-alert-title {
+      font-size: .75rem;
       text-transform: uppercase;
       letter-spacing: .04em;
-      color: #7c838b;
-      font-weight: 700;
-    }
-
-    .pay-kpi-value {
-      margin: 4px 0 0;
-      font-size: 1.08rem;
-      color: #222a31;
+      color: #8a6d1a;
       font-weight: 800;
-    }
-
-    .pay-kpi-value.warn {
-      color: #9f7a1b;
-    }
-
-    .pay-table-wrap {
-      border: 1px solid #d6dde2;
-      border-radius: 10px;
-      background: #fff;
-      overflow: hidden;
-      box-shadow:
-        0 0 0 1px rgba(20, 161, 129, 0.14),
-        0 7px 16px rgba(20, 161, 129, 0.11);
-      border-top: 2px solid rgba(20, 161, 129, 0.36);
-    }
-
-    .pay-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: .9rem;
-    }
-
-    .pay-table thead th {
-      text-align: left;
-      padding: 11px 12px;
-      background: #f2f5f7;
-      color: #53606c;
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: .03em;
-      border-bottom: 1px solid #d6dde2;
-    }
-
-    .pay-table tbody td {
-      padding: 12px;
-      border-bottom: 1px solid #ebeff2;
-      color: #303840;
-      vertical-align: middle;
-    }
-
-    .pay-table tbody tr:last-child td {
-      border-bottom: 0;
-    }
-
-    .pay-status {
+      margin-bottom: 4px;
       display: inline-flex;
       align-items: center;
-      border-radius: 999px;
-      padding: 3px 9px;
-      font-size: .74rem;
-      font-weight: 700;
-      letter-spacing: .02em;
-      text-transform: uppercase;
-      border: 1px solid transparent;
-      color: #8a6d1a;
-      background: #fff7df;
-      border-color: #f0ddb0;
+      gap: 6px;
     }
 
-    .pay-actions-inline {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
+    .pay-alert-text {
+      font-size: .82rem;
     }
 
-    .pay-action-btn {
+    .pay-alert-icon {
+      width: 14px;
+      height: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #f0a500;
+      animation: alertBlink 1.4s ease-in-out infinite;
+    }
+
+    .pay-alert-icon svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @keyframes alertBlink {
+      0%, 100% { opacity: .3; box-shadow: 0 0 0 0 rgba(241, 183, 0, 0.35); }
+      50% { opacity: 1; box-shadow: 0 0 0 6px rgba(241, 183, 0, 0.15); }
+    }
+
+    .pay-alert-actions {
+      margin-top: 8px;
+    }
+
+    .pay-alert-btn {
       border: 0;
       border-radius: 6px;
-      padding: 7px 11px;
+      padding: 7px 12px;
       font-family: "Nunito", sans-serif;
       font-size: .78rem;
       font-weight: 700;
@@ -1036,20 +1007,151 @@
       transition: filter .18s ease, transform .18s ease;
     }
 
-    .pay-action-btn:hover {
+    .pay-alert-btn:hover {
       filter: brightness(1.05);
       transform: translateY(-1px);
     }
 
-    .pay-alert-note {
-      margin: 12px 0 0;
-      font-size: .8rem;
-      color: #6a727b;
-      line-height: 1.35;
+    .invoice-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(17, 20, 24, 0.72);
+      padding: 16px;
     }
 
-    .pay-alert-note strong {
-      color: #bb4040;
+    .invoice-modal.is-open {
+      display: flex;
+    }
+
+    .invoice-card {
+      width: min(100%, 520px);
+      background: #f7f9fa;
+      border-radius: 16px;
+      border: 1px solid #e2e6ea;
+      box-shadow: 0 26px 50px rgba(0, 0, 0, 0.28);
+      overflow: hidden;
+      animation: invoiceIn .22s ease-out;
+    }
+
+    .invoice-head {
+      padding: 16px 18px 12px;
+      border-bottom: 1px solid #e3e7eb;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+    }
+
+    .invoice-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #fff7df;
+      color: #b88416;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #f0ddb0;
+    }
+
+    .invoice-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .invoice-title {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #2f353c;
+      letter-spacing: .2px;
+    }
+
+    .invoice-close {
+      border: 0;
+      background: transparent;
+      color: #5a6168;
+      cursor: pointer;
+      font-size: 1.1rem;
+      line-height: 1;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .15s ease;
+    }
+
+    .invoice-close:hover {
+      background: #f0f2f4;
+    }
+
+    .invoice-body {
+      padding: 14px 18px 18px;
+    }
+
+    .invoice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 14px;
+    }
+
+    .invoice-field .label {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+      color: #7a838d;
+      font-weight: 700;
+      margin: 0 0 2px;
+    }
+
+    .invoice-field .value {
+      margin: 0;
+      font-size: .92rem;
+      font-weight: 700;
+      color: #2f3740;
+    }
+
+    .invoice-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .invoice-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      color: #8a6d1a;
+      background: #fff7df;
+      border: 1px solid #f0ddb0;
+    }
+
+    .invoice-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #f1b700;
+    }
+
+    @keyframes invoiceIn {
+      from { opacity: 0; transform: translateY(10px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     /* ALERTA FATURA */
@@ -1247,12 +1349,12 @@
       .access-grid {
         max-width: 100%;
         gap: 20px;
-        margin-top: 18px;
+        margin-top: 100px;
       }
       .access-card {
         width: 100%;
         min-height: 200px;
-        padding: 18px 14px 20px;
+        padding: 25px 14px 20px;
         border-radius: 16px;
         background: var(--bg-card);
         border-width: 1px;
@@ -1411,35 +1513,7 @@
         padding: 12px;
       }
 
-      .pay-kpis {
-        grid-template-columns: 1fr;
-      }
 
-      .pay-table thead {
-        display: none;
-      }
-
-      .pay-table tbody tr {
-        display: grid;
-        grid-template-columns: 1fr;
-        border-bottom: 1px solid #e7ecef;
-      }
-
-      .pay-table tbody td {
-        border-bottom: 0;
-        padding: 8px 10px;
-      }
-
-      .pay-table tbody td::before {
-        content: attr(data-label);
-        display: block;
-        font-size: .68rem;
-        text-transform: uppercase;
-        letter-spacing: .03em;
-        color: #7a838d;
-        margin-bottom: 2px;
-        font-weight: 700;
-      }
     }
 
     @media (max-width: 600px) {
@@ -1462,7 +1536,8 @@
 
     @media (prefers-reduced-motion: reduce) {
       .page-enter,
-      .page-exit { animation: none; }
+      .page-exit,
+      .fade-rise { animation: none; opacity: 1; transform: none; }
     }
   </style>
 </head>
@@ -1489,17 +1564,16 @@
     </header>
 
     <main class="content-area">
-      <section class="welcome-card card">
+      <section class="welcome-card card fade-rise delay-1">
         <h1>Bem-vindo ao Portal de Serviços do CONSELHO FEDERAL DE MEDICINA!</h1>
-        <p>Efetue login ou cadastre-se como Pessoa Física (Médico) ou Pessoa Jurídica (Diretor Técnico) para acessar os serviços online.</p>
+        <p>Efetue login  como Pessoa Física (Médico) para acessar os serviços online.</p>
       </section>
 
       <section class="access-grid">
-        <article class="access-card card">
+        <article class="access-card card fade-rise delay-2">
           <h2>Acesso Pessoa Física</h2>
           <p>Solicitante sem inscrição ou médico com inscrição</p>
           <button class="action-btn" data-mode="medico">Entrar como Médico</button>
-          <button class="action-btn panel-access" data-mode="panel">Acessar painel CRM</button>
         </article>
       </section>
     </main>
@@ -1696,56 +1770,67 @@
         <section class="pay-panel">
           <h1 class="pay-panel-head">Painel de Pendências</h1>
           <div class="pay-panel-body">
-            <div class="pay-kpis">
-              <article class="pay-kpi">
-                <p class="pay-kpi-title">Pendências em aberto</p>
-                <p class="pay-kpi-value">1</p>
-              </article>
-              <article class="pay-kpi">
-                <p class="pay-kpi-title">Valor total pendente</p>
-                <p class="pay-kpi-value">R$ 948,00</p>
-              </article>
-              <article class="pay-kpi">
-                <p class="pay-kpi-title">Último vencimento</p>
-                <p class="pay-kpi-value warn">31/03/2026</p>
-              </article>
+            <div class="pay-alert-note">
+            <div class="pay-alert-title">
+              <span class="pay-alert-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 3.5L2.8 19.2c-.4.7.1 1.6.9 1.6h16.6c.8 0 1.3-.9.9-1.6L12 3.5z"></path>
+                  <path d="M12 8.8v5.6"></path>
+                  <circle cx="12" cy="17.2" r="1.1" fill="currentColor"></circle>
+                </svg>
+              </span>
+              Aviso de pendência
             </div>
-
-            <div class="pay-table-wrap">
-              <table class="pay-table" aria-label="Pendências financeiras do CRM">
-                <thead>
-                  <tr>
-                    <th>Referência</th>
-                    <th>Descrição</th>
-                    <th>Vencimento</th>
-                    <th>Valor</th>
-                    <th>Status</th>
-                    <th>Ações</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td data-label="Referência">ANUIDADE PF 2026</td>
-                    <td data-label="Descrição">Anuidade Pessoa Física - Exercício 2026 (CRMPR)</td>
-                    <td data-label="Vencimento">31/03/2026</td>
-                    <td data-label="Valor">R$ 948,00</td>
-                    <td data-label="Status"><span class="pay-status">Em aberto</span></td>
-                    <td data-label="Ações">
-                      <div class="pay-actions-inline">
-                        <button id="payNowBtn" type="button" class="pay-action-btn">Pagar agora</button>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="pay-alert-text">
+                Existe fatura de CRM em aberto. Regularize o pagamento para evitar restrições em serviços e emissão de certidões.
+              </div>
+              <div class="pay-alert-actions">
+                <button id="viewInvoiceBtn" type="button" class="pay-alert-btn">Ver fatura</button>
+              </div>
             </div>
-
-            <p id="payAlertNote" class="pay-alert-note">
-              <strong>Atenção:</strong> título financeiro nº 2026.03.000948 (anuidade PF CRMPR) permanece em aberto no valor de R$ 948,00. Após o vencimento, poderão incidir multa e juros conforme norma vigente.
-            </p>
           </div>
         </section>
       </main>
+    </div>
+  </div>
+
+  <div id="invoiceModal" class="invoice-modal" role="dialog" aria-modal="true" aria-labelledby="invoiceTitle">
+    <div class="invoice-card">
+      <div class="invoice-head">
+        <span class="invoice-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3.5L2.8 19.2c-.4.7.1 1.6.9 1.6h16.6c.8 0 1.3-.9.9-1.6L12 3.5z"></path>
+            <path d="M12 8.8v5.6"></path>
+            <circle cx="12" cy="17.2" r="1.1" fill="currentColor"></circle>
+          </svg>
+        </span>
+        <h2 id="invoiceTitle" class="invoice-title">Fatura CRM em aberto</h2>
+        <button type="button" class="invoice-close" aria-label="Fechar">×</button>
+      </div>
+      <div class="invoice-body">
+        <div class="invoice-grid">
+          <div class="invoice-field">
+            <p class="label">Referência</p>
+            <p class="value">ANUIDADE PF 2026</p>
+          </div>
+          <div class="invoice-field">
+            <p class="label">Status</p>
+            <p class="value"><span class="invoice-status"><span class="invoice-status-dot"></span>Em aberto</span></p>
+          </div>
+          <div class="invoice-field">
+            <p class="label">Vencimento</p>
+            <p class="value">31/03/2026</p>
+          </div>
+          <div class="invoice-field">
+            <p class="label">Valor</p>
+            <p class="value">R$ 948,00</p>
+          </div>
+          <div class="invoice-field full">
+            <p class="label">Descrição</p>
+            <p class="value">Anuidade Pessoa Física - Exercício 2026 (CRMPR)</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1761,7 +1846,7 @@
       <h2 id="billingTitle">Fatura CRM em aberto</h2>
       <p>O Conselho Federal de Medicina (CFM) identificou pendência financeira vinculada ao seu registro profissional (CRM).</p>
       <div class="billing-actions">
-        <button id="billingPayBtn" type="button" class="billing-btn primary">Ir para pagamento</button>
+        <button id="billingPayBtn" type="button" class="billing-btn primary">ver painel</button>
       </div>
     </div>
   </div>
@@ -1781,11 +1866,12 @@
     const pwFeedback = document.getElementById('pwFeedback');
     const billingModal = document.getElementById('billingModal');
     const billingPayBtn = document.getElementById('billingPayBtn');
-    const payNowBtn = document.getElementById('payNowBtn');
-    const payAlertNote = document.getElementById('payAlertNote');
     const payMenuBtn = payPage.querySelector('.pay-menu-btn');
     const paySidebarOverlay = payPage.querySelector('.pay-sidebar-overlay');
     const payMenuItems = payPage.querySelectorAll('.pay-item');
+    const viewInvoiceBtn = document.getElementById('viewInvoiceBtn');
+    const invoiceModal = document.getElementById('invoiceModal');
+    const invoiceClose = document.querySelector('.invoice-close');
     const accessCards = document.querySelectorAll('.access-card');
     const accessButtons = document.querySelectorAll('.action-btn');
 
@@ -1836,9 +1922,6 @@
       btn.addEventListener('click', () => switchPage(homePage, pfPage));
     });
 
-    document.querySelectorAll('.action-btn[data-mode="panel"]').forEach((btn) => {
-      btn.addEventListener('click', () => switchPage(homePage, payPage));
-    });
 
     pfForm.addEventListener('submit', (event) => {
       event.preventDefault();
@@ -1925,11 +2008,20 @@
       }
     });
 
-    payNowBtn?.addEventListener('click', () => {
-      if (payAlertNote) {
-        payAlertNote.innerHTML = "<strong>Encaminhado para pagamento:</strong> você será redirecionado para o ambiente seguro de quitação da anuidade CRMPR 2026.";
+    viewInvoiceBtn?.addEventListener('click', () => {
+      invoiceModal?.classList.add('is-open');
+    });
+
+    invoiceClose?.addEventListener('click', () => {
+      invoiceModal?.classList.remove('is-open');
+    });
+
+    invoiceModal?.addEventListener('click', (event) => {
+      if (event.target === invoiceModal) {
+        invoiceModal.classList.remove('is-open');
       }
     });
+
 
     billingModal.addEventListener('click', (event) => {
       if (event.target === billingModal) {
