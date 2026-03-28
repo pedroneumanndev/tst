@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -24,6 +24,7 @@
       --text-main: var(--text-color);
       --text-muted: #777d7d;
       --green: var(--primary-color);
+      --green-dark: var(--secondary-color);
     }
 
     * { box-sizing: border-box; }
@@ -272,22 +273,19 @@
     .footer-inner p { margin: 4px 0; }
 
     /* PESSOA FISICA */
-    .pf-shell,
-    .pw-shell {
+    .pf-shell {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       background: #dddddf;
     }
 
-    .pf-hero,
-    .pw-hero {
+    .pf-hero {
       min-height: 148px;
       background: #099b74;
     }
 
-    .pf-hero-inner,
-    .pw-hero-inner {
+    .pf-hero-inner {
       width: min(1180px, 100%);
       margin: 0 auto;
       padding: 0 20px;
@@ -297,26 +295,18 @@
       gap: 10px;
     }
 
-    .pf-logo,
-    .pw-logo { width: 97px; height: 77px; object-fit: contain; }
+    .pf-logo { width: 97px; height: 77px; object-fit: contain; }
 
-    .pf-divider,
-    .pw-divider {
+    .pf-divider {
       width: 1px;
       height: 50px;
       background: rgba(255, 255, 255, 0.3);
     }
 
-    .pf-brand-copy,
-    .pw-brand-copy {
+    .pf-brand-copy {
       color: #fff;
       line-height: 1;
       margin-left: 10px;
-    }
-
-    .pf-brand-main {
-      display: none;
-      margin: 0;
     }
 
     .pf-brand-title {
@@ -339,20 +329,17 @@
       text-transform: uppercase;
     }
 
-    .pf-main,
-    .pw-main {
+    .pf-main {
       flex: 1;
       width: 100%;
-    }
-
-    .pf-main {
       padding: 0 14px;
-      margin: 58px auto 24px;
+      margin: 70px auto 24px;
     }
 
-    .pf-card,
-    .pw-card {
+    .pf-card {
       width: 100%;
+      max-width: 100%;
+      margin: 0;
       background: #ececee;
       border-radius: 22px;
       border: 1px solid #d9dbdd;
@@ -362,17 +349,15 @@
 
     .pf-card-head { padding: 28px 28px 22px; }
 
-    .pf-card-head h1,
-    .pw-card-head h1 {
+    .pf-card-head h1 {
       margin: 0;
       display: flex;
       align-items: center;
-      font-size: 2.05rem;
+      gap: 8px;
+      font-size: 2rem;
       font-weight: 700;
       color: #36383c;
     }
-
-    .pf-card-head h1 { gap: 8px; }
 
     .pf-dot {
       width: 12px;
@@ -382,22 +367,18 @@
       display: inline-block;
     }
 
-    .pf-form,
-    .pw-form {
+    .pf-form {
       background: #e8e8ea;
       border-top: 1px solid #e0e1e3;
+      padding: 23px 27px 29px;
     }
 
-    .pf-form {
-      padding: 22px 54px 30px;
-    }
-
-    .pf-field { margin-bottom: 14px; }
+    .pf-field { margin-bottom: 15px; }
 
     .pf-field label {
       display: block;
-      margin-bottom: 6px;
-      font-size: .95rem;
+      margin-bottom: 7px;
+      font-size: .98rem;
       color: #4d5156;
     }
 
@@ -414,10 +395,10 @@
       border: 0;
       border-bottom: 1px solid #c8cbce;
       background: transparent;
-      padding: 1px 34px 8px 2px;
+      padding: 3px 34px 9px 2px;
       border-radius: 0;
       font-family: inherit;
-      font-size: .94rem;
+      font-size: .96rem;
       font-weight: 500;
       color: #3f464d;
       outline: none;
@@ -443,26 +424,27 @@
 
     .pf-field input {
       width: 100%;
-      border: 1px solid transparent;
-      background: #dededf;
-      padding: 10px 12px;
-      border-radius: 4px;
+      border: 0;
+      border-bottom: 1px solid #c8cbce;
+      background: transparent;
+      padding: 3px 2px 9px;
+      border-radius: 0;
+      box-shadow: none;
       font-family: inherit;
-      font-size: .95rem;
+      font-size: .96rem;
       color: #43474c;
       outline: none;
-      transition: border-color .15s ease, box-shadow .15s ease;
     }
 
     .pf-field input:focus {
-      border-color: #8fdccd;
-      box-shadow: 0 0 0 2px rgba(143, 220, 205, 0.22);
+      border-bottom-color: #8fdccd;
+      box-shadow: none;
     }
 
     .pf-continue {
       display: block;
       width: min(100%, 206px);
-      margin: 18px auto 0;
+      margin: 15px auto 0;
       border: 0;
       border-radius: 999px;
       padding: 11px 14px;
@@ -489,20 +471,15 @@
     }
 
     .pf-feedback {
-      min-height: 0;
+      min-height: 24px;
       text-align: center;
-      margin: 0;
+      margin: 10px 0 0;
       color: #0b8f6d;
       font-size: .88rem;
       font-weight: 700;
     }
 
-    .pf-feedback:empty {
-      display: none;
-    }
-
-    .pf-footer,
-    .pw-footer {
+    .pf-footer {
       min-height: 66px;
       border-radius: 0;
       margin: 0;
@@ -524,6 +501,33 @@
     .pf-footer-inner p { margin: 2px 0; }
 
     /* SENHA */
+    .pw-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #dddddf;
+    }
+
+    .pw-hero {
+      min-height: 148px;
+      background: #099b74;
+    }
+
+    .pw-hero-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 0 20px;
+      min-height: 148px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pw-logo { width: 97px; height: 77px; object-fit: contain; }
+    .pw-divider { width: 1px; height: 50px; background: rgba(255,255,255,.3); }
+
+    .pw-brand-copy { color: #fff; line-height: 1; margin-left: 10px; }
+
     .pw-brand-title {
       margin: 0;
       font-family: "Nunito", sans-serif;
@@ -544,6 +548,8 @@
     }
 
     .pw-main {
+      flex: 1;
+      width: 100%;
       padding: 0 34px;
       margin: 68px auto 24px;
     }
@@ -582,8 +588,26 @@
       color: #078a68;
     }
 
+    .pw-card {
+      width: 100%;
+      background: #ececee;
+      border-radius: 22px;
+      border: 1px solid #d9dbdd;
+      box-shadow: 0 8px 18px rgba(68, 72, 78, 0.12);
+      overflow: hidden;
+    }
+
     .pw-card-head { padding: 32px 30px 24px; }
-    .pw-card-head h1 { gap: 10px; }
+
+    .pw-card-head h1 {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #36383c;
+    }
 
     .pw-dot {
       width: 13px;
@@ -593,7 +617,11 @@
       display: inline-block;
     }
 
-    .pw-form { padding: 24px 28px 32px; }
+    .pw-form {
+      background: #e8e8ea;
+      border-top: 1px solid #e0e1e3;
+      padding: 24px 28px 32px;
+    }
 
     .pw-pass-wrap {
       display: flex;
@@ -619,8 +647,29 @@
       border: 0;
       background: transparent;
       color: #0ca578;
-      font-size: 1.5rem;
       cursor: pointer;
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pw-eye svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: opacity .15s ease, transform .15s ease;
+    }
+
+    .pw-eye.eye-swap svg {
+      opacity: 0;
+      transform: scale(0.92);
     }
 
     .pw-recover {
@@ -661,6 +710,17 @@
       font-weight: 700;
     }
 
+    .pw-footer {
+      min-height: 66px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        linear-gradient(120deg, rgba(2, 106, 81, 0.84), rgba(3, 137, 104, 0.78)),
+        url("imgs/header-bg.jpg") center / cover no-repeat;
+    }
+
     .pw-footer p {
       margin: 0;
       color: #fff;
@@ -680,7 +740,7 @@
       min-height: 72px;
       background-color: #067f63;
       background:
-        linear-gradient(120deg, rgba(2, 106, 81, 0.56), rgba(3, 137, 104, 0.5)),
+        linear-gradient(120deg, rgba(2, 106, 81, 0.32), rgba(3, 137, 104, 0.28)),
         url("imgs/header-bg.jpg") center center / cover no-repeat;
       background-repeat: no-repeat;
       background-position: center;
@@ -699,7 +759,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(0, 49, 38, .16), rgba(0, 118, 91, .06) 58%, rgba(0, 60, 47, .1));
+      background: linear-gradient(90deg, rgba(0, 49, 38, .08), rgba(0, 118, 91, .04) 58%, rgba(0, 60, 47, .06));
       pointer-events: none;
     }
 
@@ -730,6 +790,13 @@
       stroke-width: 2.2;
       fill: none;
       stroke-linecap: round;
+    }
+
+    .pay-topbar.no-menu .pay-menu-btn {
+      visibility: hidden;
+      pointer-events: none;
+      width: 0;
+      padding: 0;
     }
 
     .pay-brand {
@@ -775,7 +842,7 @@
 
     .pay-brand-sub {
       margin: 0;
-      font-size: .52rem;
+      font-size: .6rem;
       line-height: 1;
       font-weight: 600;
       opacity: .95;
@@ -791,30 +858,6 @@
       font-size: .68rem;
       white-space: nowrap;
       color: #e9fff8;
-    }
-
-    .pay-clock {
-      font-weight: 700;
-      font-size: .68rem;
-    }
-
-    .pay-logout {
-      width: 18px;
-      height: 18px;
-      opacity: .94;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .pay-logout svg {
-      width: 14px;
-      height: 14px;
-      stroke: currentColor;
-      stroke-width: 2.1;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
     }
 
     .pay-layout {
@@ -914,10 +957,6 @@
       font-weight: 800;
     }
 
-    .pay-kpi-value.danger {
-      color: #d24343;
-    }
-
     .pay-kpi-value.warn {
       color: #9f7a1b;
     }
@@ -971,15 +1010,6 @@
       letter-spacing: .02em;
       text-transform: uppercase;
       border: 1px solid transparent;
-    }
-
-    .pay-status.overdue {
-      color: #b03a3a;
-      background: #fdeaea;
-      border-color: #f4c1c1;
-    }
-
-    .pay-status.open {
       color: #8a6d1a;
       background: #fff7df;
       border-color: #f0ddb0;
@@ -1019,7 +1049,6 @@
     .pay-alert-note strong {
       color: #bb4040;
     }
-
 
     /* ALERTA FATURA */
     .billing-modal {
@@ -1083,6 +1112,14 @@
       text-align: center;
     }
 
+    .billing-modal-card .note {
+      margin-top: -2px;
+      margin-bottom: 12px;
+      color: #6a7078;
+      font-size: .93rem;
+      line-height: 1.35;
+    }
+
     .billing-actions {
       display: grid;
       gap: 9px;
@@ -1104,6 +1141,12 @@
     .billing-btn.primary {
       background: #e22323;
       color: #fff;
+    }
+
+    .billing-btn.secondary {
+      background: #f2f3f4;
+      color: #2f3337;
+      border: 1px solid #cfd3d8;
     }
 
     .billing-btn:hover {
@@ -1133,124 +1176,6 @@
       50% {
         box-shadow: 0 0 0 7px rgba(227, 60, 60, 0.03);
         transform: scale(1.025);
-      }
-    }
-
-    @media (min-width: 901px) {
-      .container {
-        width: min(1680px, 86%);
-      }
-
-      .hero {
-        min-height: 190px;
-      }
-
-      .hero-inner {
-        height: 190px;
-      }
-
-      .content-area {
-        width: min(1240px, 88%);
-        margin-top: 16px;
-      }
-
-      .welcome-card {
-        max-width: 1025px;
-        padding: 22px 24px 20px;
-      }
-
-      .access-grid {
-        max-width: 1025px;
-        justify-items: start;
-        margin: 36px auto 0;
-      }
-
-      .access-card {
-        width: 560px;
-        min-height: 198px;
-      }
-
-      .pf-main {
-        width: min(552px, 100%);
-        padding: 0;
-        margin: 46px auto 20px;
-      }
-
-      .pf-hero {
-        min-height: 190px;
-        background:
-          linear-gradient(120deg, rgba(2, 106, 81, 0.8), rgba(3, 137, 104, 0.74)),
-          url("imgs/header-bg.jpg") center / cover no-repeat;
-      }
-
-      .pf-hero-inner {
-        width: min(1680px, 86%);
-        min-height: 190px;
-        padding: 0;
-        gap: 16px;
-      }
-
-      .pf-logo {
-        width: 70px;
-        height: 69px;
-      }
-
-      .pf-divider {
-        height: 70px;
-        background: rgba(255, 255, 255, 0.35);
-      }
-
-      .pf-brand-copy {
-        margin-left: 0;
-      }
-
-      .pf-brand-main {
-        display: block;
-        font-size: clamp(2.35rem, 2.9vw, 3.15rem);
-        font-weight: 600;
-        letter-spacing: .3px;
-      }
-
-      .pf-brand-title {
-        margin-top: 6px;
-        font-size: clamp(1.45rem, 1.76vw, 1.85rem);
-        font-weight: 800;
-        letter-spacing: .1px;
-        line-height: 1;
-      }
-
-      .pf-brand-subtitle {
-        margin: 4px 0 0;
-        max-width: none;
-        font-family: "Nunito", sans-serif;
-        font-size: clamp(.95rem, 1vw, 1.08rem);
-        font-weight: 600;
-        letter-spacing: .05px;
-      }
-
-      .pf-card {
-        width: 100%;
-        margin: 0 auto;
-      }
-
-      .pf-card-head {
-        padding: 30px 28px 24px;
-      }
-
-      .pf-form {
-        padding: 22px 54px 30px;
-      }
-
-      .pf-footer {
-        width: calc(100% - 8px);
-        margin-left: auto;
-        margin-right: auto;
-        border-radius: 12px 12px 0 0;
-        min-height: 88px;
-      }
-
-      .pf-footer-inner {
-        font-size: .98rem;
       }
     }
 
@@ -1416,36 +1341,19 @@
       .pay-user {
         grid-column: 1 / -1;
         justify-content: flex-end;
-        font-size: .78rem;
+        font-size: .82rem;
       }
 
       .pay-brand-title {
-        font-size: 1.34rem;
-        gap: 6px;
+        font-size: 1.35rem;
       }
 
       .pay-brand-sub {
-        font-size: .6rem;
+        font-size: .64rem;
       }
 
       .pay-layout {
         grid-template-columns: 1fr;
-      }
-
-      .pay-sidebar-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(20, 26, 33, 0.42);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity .2s ease;
-        z-index: 40;
-        display: block;
-      }
-
-      .pay-shell.menu-open .pay-sidebar-overlay {
-        opacity: 1;
-        pointer-events: auto;
       }
 
       .pay-sidebar {
@@ -1467,6 +1375,22 @@
         transform: translateX(0);
       }
 
+      .pay-sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(20, 26, 33, 0.42);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .2s ease;
+        z-index: 40;
+        display: block;
+      }
+
+      .pay-shell.menu-open .pay-sidebar-overlay {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
       .pay-item {
         font-size: .84rem;
       }
@@ -1479,12 +1403,12 @@
         font-size: 1.6rem;
       }
 
-      .pay-kpis {
-        grid-template-columns: 1fr;
+      .pay-panel-body {
+        padding: 12px;
       }
 
-      .pay-table {
-        font-size: .84rem;
+      .pay-kpis {
+        grid-template-columns: 1fr;
       }
 
       .pay-table thead {
@@ -1514,183 +1438,6 @@
       }
     }
 
-    @media (max-width: 600px) {
-      .hero {
-        min-height: 136px;
-      }
-
-      .hero-inner {
-        height: 136px;
-      }
-
-      .brand-logo {
-        width: 50px;
-        height: 50px;
-      }
-
-      .brand-virtual {
-        font-size: 1.34rem;
-      }
-
-      .brand-sub {
-        font-size: .56rem;
-        max-width: 164px;
-      }
-
-      .content-area {
-        width: 95%;
-      }
-
-      .welcome-card {
-        padding: 18px 12px 16px;
-      }
-
-      .welcome-card h1 {
-        font-size: .92rem;
-      }
-
-      .welcome-card p {
-        font-size: .84rem;
-      }
-
-      .access-card {
-        min-height: 188px;
-        padding: 16px 12px 18px;
-      }
-
-      .action-btn {
-        width: min(100%, 220px);
-        font-size: .9rem;
-      }
-
-      .pf-main,
-      .pw-main {
-        padding: 0 12px;
-        margin-top: 34px;
-      }
-
-      .pf-card-head,
-      .pw-card-head {
-        padding: 22px 16px 18px;
-      }
-
-      .pf-card-head h1,
-      .pw-card-head h1 {
-        font-size: 1.1rem;
-      }
-
-      .pf-form,
-      .pw-form {
-        padding: 18px 16px 24px;
-      }
-
-      .pf-field label {
-        font-size: .9rem;
-      }
-
-      .pf-field select,
-      .pf-field input {
-        font-size: .9rem;
-      }
-
-      .pf-continue,
-      .pw-enter {
-        width: min(100%, 210px);
-      }
-
-      .pw-back {
-        font-size: 1.14rem;
-        margin-bottom: 12px;
-      }
-
-      .pw-back .back-icon {
-        width: 20px;
-        height: 20px;
-      }
-
-      .pay-topbar {
-        grid-template-columns: auto 1fr;
-        align-items: center;
-        row-gap: 3px;
-        padding: 7px 10px;
-      }
-
-      .pay-brand {
-        gap: 7px;
-      }
-
-      .pay-logo {
-        width: 36px;
-        height: 36px;
-      }
-
-
-      .pay-brand-divider {
-        height: 32px;
-      }
-
-      .pay-brand-title {
-        font-size: 1.28rem;
-        gap: 5px;
-      }
-
-      .pay-brand-sub {
-        font-size: .56rem;
-      }
-
-      .pay-user {
-        grid-column: 1 / -1;
-        justify-content: flex-end;
-        font-size: .74rem;
-        gap: 6px;
-      }
-
-      .pay-clock {
-        font-size: .74rem;
-      }
-
-      .pay-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .pay-sidebar {
-        max-height: none;
-        overflow: auto;
-      }
-
-      .pay-item {
-        font-size: .8rem;
-        padding: 9px 8px;
-      }
-
-      .pay-content {
-        padding: 8px;
-      }
-
-      .pay-panel {
-        border-radius: 10px;
-      }
-
-      .pay-panel-head {
-        font-size: 1.2rem;
-        padding: 10px 12px;
-      }
-
-      .pay-panel-body {
-        padding: 12px;
-      }
-
-      .pay-kpi-value {
-        font-size: 1.04rem;
-      }
-
-      .pay-table tbody td {
-        padding: 7px 8px;
-        font-size: .8rem;
-      }
-
-    }
-
     @media (prefers-reduced-motion: reduce) {
       .page-enter,
       .page-exit { animation: none; }
@@ -1700,18 +1447,23 @@
 <body>
   <!-- HOME -->
   <div id="homePage" class="home-shell">
-    <header class="hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-inner container">
-        <div class="brand-lockup">
-          <img class="brand-logo" src="imgs/logo (1).png" alt="Logo CFM Virtual" />
-          <div class="brand-copy">
-            <p class="brand-main">CFM | CRMs</p>
-            <p class="brand-virtual">CFM VIRTUAL</p>
-            <p class="brand-sub">CONSELHO FEDERAL DE MEDICINA</p>
-          </div>
+    <header class="pay-topbar no-menu">
+      <button type="button" class="pay-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16"></path>
+          <path d="M4 12h12"></path>
+          <path d="M4 17h8"></path>
+        </svg>
+      </button>
+      <div class="pay-brand">
+        <img class="pay-logo" src="imgs/cfm_logo_bola-removebg-preview.png" alt="Logo CFM" />
+        <span class="pay-brand-divider" aria-hidden="true"></span>
+        <div class="pay-brand-copy">
+          <p class="pay-brand-title"><span>CFM</span> <span class="crm">VIRTUAL</span></p>
+          <p class="pay-brand-sub">CONSELHO FEDERAL DE MEDICINA</p>
         </div>
       </div>
+      <div class="pay-user" aria-hidden="true"></div>
     </header>
 
     <main class="content-area">
@@ -1741,16 +1493,23 @@
 
   <!-- PESSOA FISICA -->
   <div id="pfPage" class="pf-shell hidden">
-    <header class="pf-hero">
-      <div class="pf-hero-inner">
-        <img class="pf-logo" src="imgs/logo (1).png" alt="Logo CFM Virtual" />
-        <span class="pf-divider" aria-hidden="true"></span>
-        <div class="pf-brand-copy">
-          <p class="pf-brand-main">CFM | CRMs</p>
-          <p class="pf-brand-title">CFM VIRTUAL</p>
-          <p class="pf-brand-subtitle">CONSELHO FEDERAL DE MEDICINA</p>
+    <header class="pay-topbar no-menu">
+      <button type="button" class="pay-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16"></path>
+          <path d="M4 12h12"></path>
+          <path d="M4 17h8"></path>
+        </svg>
+      </button>
+      <div class="pay-brand">
+        <img class="pay-logo" src="imgs/cfm_logo_bola-removebg-preview.png" alt="Logo CFM" />
+        <span class="pay-brand-divider" aria-hidden="true"></span>
+        <div class="pay-brand-copy">
+          <p class="pay-brand-title"><span>CFM</span> <span class="crm">VIRTUAL</span></p>
+          <p class="pay-brand-sub">CONSELHO FEDERAL DE MEDICINA</p>
         </div>
       </div>
+      <div class="pay-user" aria-hidden="true"></div>
     </header>
 
     <main class="pf-main">
@@ -1765,6 +1524,33 @@
             <div class="pf-select-wrap">
               <select id="uf" name="uf" required>
                 <option value="" selected disabled>Selecione a UF</option>
+                <option value="AC">AC - Acre</option>
+                <option value="AL">AL - Alagoas</option>
+                <option value="AM">AM - Amazonas</option>
+                <option value="AP">AP - Amapa</option>
+                <option value="BA">BA - Bahia</option>
+                <option value="CE">CE - Ceara</option>
+                <option value="DF">DF - Distrito Federal</option>
+                <option value="ES">ES - Espirito Santo</option>
+                <option value="GO">GO - Goias</option>
+                <option value="MA">MA - Maranhao</option>
+                <option value="MG">MG - Minas Gerais</option>
+                <option value="MS">MS - Mato Grosso do Sul</option>
+                <option value="MT">MT - Mato Grosso</option>
+                <option value="PA">PA - Para</option>
+                <option value="PB">PB - Paraiba</option>
+                <option value="PE">PE - Pernambuco</option>
+                <option value="PI">PI - Piaui</option>
+                <option value="PR">PR - Parana</option>
+                <option value="RJ">RJ - Rio de Janeiro</option>
+                <option value="RN">RN - Rio Grande do Norte</option>
+                <option value="RO">RO - Rondonia</option>
+                <option value="RR">RR - Roraima</option>
+                <option value="RS">RS - Rio Grande do Sul</option>
+                <option value="SC">SC - Santa Catarina</option>
+                <option value="SE">SE - Sergipe</option>
+                <option value="SP">SP - Sao Paulo</option>
+                <option value="TO">TO - Tocantins</option>
               </select>
               <span class="pf-chevron" aria-hidden="true"></span>
             </div>
@@ -1791,15 +1577,23 @@
 
   <!-- SENHA -->
   <div id="senhaPage" class="pw-shell hidden">
-    <header class="pw-hero">
-      <div class="pw-hero-inner">
-        <img class="pw-logo" src="imgs/logo (1).png" alt="Logo CRM Virtual" />
-        <span class="pw-divider" aria-hidden="true"></span>
-        <div class="pw-brand-copy">
-          <p class="pw-brand-title">CRM VIRTUAL</p>
-          <p class="pw-brand-subtitle">CONSELHO REGIONAL DE MEDICINA DO ESTADO DO PARANÁ</p>
+    <header class="pay-topbar no-menu">
+      <button type="button" class="pay-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16"></path>
+          <path d="M4 12h12"></path>
+          <path d="M4 17h8"></path>
+        </svg>
+      </button>
+      <div class="pay-brand">
+        <img class="pay-logo" src="imgs/cfm_logo_bola-removebg-preview.png" alt="Logo CFM" />
+        <span class="pay-brand-divider" aria-hidden="true"></span>
+        <div class="pay-brand-copy">
+          <p class="pay-brand-title"><span>CRMPR</span> <span class="crm">CRM VIRTUAL</span></p>
+          <p class="pay-brand-sub">CONSELHO REGIONAL DE MEDICINA DO ESTADO DO PARANÁ</p>
         </div>
       </div>
+      <div class="pay-user" aria-hidden="true"></div>
     </header>
 
     <main class="pw-main">
@@ -1821,7 +1615,12 @@
         <form id="pwForm" class="pw-form" novalidate>
           <div class="pw-pass-wrap">
             <input id="senhaInput" class="pw-pass" type="password" placeholder="Senha" required minlength="6" />
-            <button type="button" id="toggleSenhaBtn" class="pw-eye" aria-label="Mostrar senha">👁</button>
+            <button type="button" id="toggleSenhaBtn" class="pw-eye" aria-label="Mostrar senha">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2.5 12s3.6-6 9.5-6 9.5 6 9.5 6-3.6 6-9.5 6-9.5-6-9.5-6z"></path>
+                <circle cx="12" cy="12" r="3.2"></circle>
+              </svg>
+            </button>
           </div>
 
           <a href="#" class="pw-recover">Recuperar senha</a>
@@ -1842,7 +1641,9 @@
     <header class="pay-topbar">
       <button type="button" class="pay-menu-btn" aria-label="Abrir menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 6h16M4 12h16M4 18h16"></path>
+          <path d="M4 7h16"></path>
+          <path d="M4 12h12"></path>
+          <path d="M4 17h8"></path>
         </svg>
       </button>
       <div class="pay-brand">
@@ -1906,7 +1707,7 @@
                     <td data-label="Descrição">Anuidade Pessoa Física - Exercício 2026 (CRMPR)</td>
                     <td data-label="Vencimento">31/03/2026</td>
                     <td data-label="Valor">R$ 948,00</td>
-                    <td data-label="Status"><span class="pay-status open">Em aberto</span></td>
+                    <td data-label="Status"><span class="pay-status">Em aberto</span></td>
                     <td data-label="Ações">
                       <div class="pay-actions-inline">
                         <button id="payNowBtn" type="button" class="pay-action-btn">Pagar agora</button>
@@ -1924,7 +1725,6 @@
         </section>
       </main>
     </div>
-
   </div>
 
   <div id="billingModal" class="billing-modal" role="dialog" aria-modal="true" aria-labelledby="billingTitle">
@@ -1964,25 +1764,8 @@
     const payMenuBtn = payPage.querySelector('.pay-menu-btn');
     const paySidebarOverlay = payPage.querySelector('.pay-sidebar-overlay');
     const payMenuItems = payPage.querySelectorAll('.pay-item');
-    const ufSelect = document.getElementById('uf');
     const accessCards = document.querySelectorAll('.access-card');
     const accessButtons = document.querySelectorAll('.action-btn');
-    const ufList = [
-      ["AC", "Acre"], ["AL", "Alagoas"], ["AM", "Amazonas"], ["AP", "Amapá"],
-      ["BA", "Bahia"], ["CE", "Ceará"], ["DF", "Distrito Federal"], ["ES", "Espírito Santo"],
-      ["GO", "Goiás"], ["MA", "Maranhão"], ["MG", "Minas Gerais"], ["MS", "Mato Grosso do Sul"],
-      ["MT", "Mato Grosso"], ["PA", "Pará"], ["PB", "Paraíba"], ["PE", "Pernambuco"],
-      ["PI", "Piauí"], ["PR", "Paraná"], ["RJ", "Rio de Janeiro"], ["RN", "Rio Grande do Norte"],
-      ["RO", "Rondônia"], ["RR", "Roraima"], ["RS", "Rio Grande do Sul"], ["SC", "Santa Catarina"],
-      ["SE", "Sergipe"], ["SP", "São Paulo"], ["TO", "Tocantins"]
-    ];
-
-    ufList.forEach(([sigla, nome]) => {
-      const option = document.createElement('option');
-      option.value = sigla;
-      option.textContent = `${sigla} - ${nome}`;
-      ufSelect.append(option);
-    });
 
     function pulseActive(el) {
       el.classList.add('is-active');
@@ -2059,9 +1842,20 @@
     });
 
     toggleSenhaBtn.addEventListener('click', () => {
+      toggleSenhaBtn.classList.add('eye-swap');
       const isPassword = senhaInput.type === 'password';
       senhaInput.type = isPassword ? 'text' : 'password';
       toggleSenhaBtn.setAttribute('aria-label', isPassword ? 'Ocultar senha' : 'Mostrar senha');
+      toggleSenhaBtn.innerHTML = isPassword
+        ? `<svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M2.5 12s3.6-6 9.5-6 9.5 6 9.5 6-3.6 6-9.5 6-9.5-6-9.5-6z"></path>
+            <line x1="4" y1="4" x2="20" y2="20"></line>
+          </svg>`
+        : `<svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M2.5 12s3.6-6 9.5-6 9.5 6 9.5 6-3.6 6-9.5 6-9.5-6-9.5-6z"></path>
+            <circle cx="12" cy="12" r="3.2"></circle>
+          </svg>`;
+      window.setTimeout(() => toggleSenhaBtn.classList.remove('eye-swap'), 140);
     });
 
     pwForm.addEventListener('submit', (event) => {
@@ -2110,7 +1904,9 @@
     });
 
     payNowBtn?.addEventListener('click', () => {
-      payAlertNote.innerHTML = "<strong>Encaminhado para pagamento:</strong> você será redirecionado para o ambiente seguro de quitação da anuidade CRMPR 2026.";
+      if (payAlertNote) {
+        payAlertNote.innerHTML = "<strong>Encaminhado para pagamento:</strong> você será redirecionado para o ambiente seguro de quitação da anuidade CRMPR 2026.";
+      }
     });
 
     billingModal.addEventListener('click', (event) => {
